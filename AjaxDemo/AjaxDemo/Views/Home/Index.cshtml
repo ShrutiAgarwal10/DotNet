@@ -1,0 +1,54 @@
+﻿<h2>STUDENTS</h2>
+
+<div style="font-family:Arial">
+
+    
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+   <br />
+
+
+    Current Time=@DateTime.Now.ToLongTimeString();
+    <br />
+
+
+    @Ajax.ActionLink("All", "All",
+        new AjaxOptions
+        {
+          HttpMethod = "GET", // HttpMethod to use, GET or POST
+          UpdateTargetId = "divStudents", // ID of the HTML element to update
+          InsertionMode = InsertionMode.Replace, // Replace the existing contents
+          LoadingElementId = "divloading"
+        })
+
+    <span style="color:Blue">|</span>
+
+    @Ajax.ActionLink("Top 3", "Top3",
+        new AjaxOptions
+        {
+            HttpMethod = "GET", // HttpMethod to use, GET or POST
+            UpdateTargetId = "divStudents", // ID of the HTML element to update
+            InsertionMode = InsertionMode.Replace, // Replace the existing contents
+            LoadingElementId = "divloading"
+        })
+
+    <span style="color:Blue">|</span>
+
+    @Ajax.ActionLink("Bottom 3", "Bottom3",
+        new AjaxOptions
+        {
+            HttpMethod = "GET", // HttpMethod to use, GET or POST
+            UpdateTargetId = "divStudents", // ID of the HTML element to update
+            InsertionMode = InsertionMode.Replace, // Replace the existing contents
+            LoadingElementId = "divloading"
+        })
+
+    <br /><br />
+    <div id="divloading" style="display:none">
+        <img src="~/Images/spinning-loading.gif" />
+    </div>
+    <div id="divStudents">
+    </div>
+</div>

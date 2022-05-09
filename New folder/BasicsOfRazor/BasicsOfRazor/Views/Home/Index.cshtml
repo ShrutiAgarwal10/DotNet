@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@{ var Message = "Welcomee To Razor";}
+@{  string strMessage = "Welcome To Razor from strMessage";}
+
+<h1>
+    Value of Message is @Message
+</h1>
+
+<h1>
+    Value of Message is @strMessage
+</h1>
+
+@{ 
+    var Message2 = "Welcome To Learning basics of razor";
+    var weekDay = DateTime.Now.DayOfWeek;
+    var Message3 = Message2 + "Today is " + weekDay.ToString();
+
+    <h1>
+        Value of Message3 is @Message3
+    </h1>
+}
+
+<table border="1">
+    <tr>
+        <td>
+            Requested URL
+        </td>
+        <td>
+            Relative Path
+        </td>
+        <td>
+            Full Path
+        </td>
+        <td>
+            Http Request Type
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            @Request.Url
+        </td>
+       
+   
+    <td>
+        @Request.FilePath
+    </td>
+    <td>
+        @Request.MapPath(Request.FilePath)
+    </td>
+    <td>
+        @Request.RequestType
+    </td>
+        </tr>
+</table>
+
+<table border="1">
+    <tr>
+        <th width="100px"> Name </th>
+        <td width="100px"> Value </td>
+    </tr>
+    <tr>
+    <td>Day</td>
+    <td>@DateTime.Now.Day</td>
+    </tr>
+
+    <tr>
+        <td>
+            Hour
+        </td>
+        <td>
+            @DateTime.Now.Hour
+        </td>
+        </tr>
+    <tr>
+        <td>
+            Minute
+        </td>
+        <td>
+            @DateTime.Now.Minute
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Second
+        </td>
+        <td>
+            @DateTime.Now.Second
+        </td>
+    </tr>
+</table>
+

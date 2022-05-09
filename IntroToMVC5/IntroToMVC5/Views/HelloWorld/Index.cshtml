@@ -1,0 +1,23 @@
+﻿@model IntroToMVC5.Models.Authors
+    @{ 
+    ViewBag.Title = "Hello World Index";
+}
+
+<h2>Index</h2>
+<h1>@ViewBag.Greetings</h1>
+<p>
+    <h3>@ViewBag.Name</h3>
+    <h3>@ViewBag.Organisation</h3>
+</p>
+
+<p>
+    <h3>@Model.AuthorName</h3>
+    <h3>@Model.AuthorCountry</h3>
+</p>
+
+<form method="get" action="/HelloWorld/GoToURL">
+    <label for"url">Enter URL</label>
+    <input type="text" name="url"/>
+    <br />
+    <input type="submit" />
+</form>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OrdersDBModelStoreContainer" CdmEntityContainer="OrdersDBEntities">
+    <EntitySetMapping Name="ORDERS">
+      <EntityTypeMapping TypeName="OrdersDBModel.ORDER">
+        <MappingFragment StoreEntitySet="ORDERS">
+          <ScalarProperty Name="ORD_NUM" ColumnName="ORD_NUM" />
+          <ScalarProperty Name="ORD_AMOUNT" ColumnName="ORD_AMOUNT" />
+          <ScalarProperty Name="ADVANCE_AMOUNT" ColumnName="ADVANCE_AMOUNT" />
+          <ScalarProperty Name="ORD_DATE" ColumnName="ORD_DATE" />
+          <ScalarProperty Name="CUST_CODE" ColumnName="CUST_CODE" />
+          <ScalarProperty Name="AGENT_CODE" ColumnName="AGENT_CODE" />
+          <ScalarProperty Name="ORD_DESCRIPTION" ColumnName="ORD_DESCRIPTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

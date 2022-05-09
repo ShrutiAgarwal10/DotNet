@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Order Details</h2>
+
+<br />
+<table id="jqGrid"></table>
+<div id="jqGridPager"></div>
+
+<link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" />
+<link href="~/Content/ui.jqgrid.min.css" rel="stylesheet" />
+
+@section scripts
+{
+    <script src="~/Scripts/free-jqGrid/i18n/grid.locale-en.js"></script>
+    <script src="~/Scripts/free-jqGrid/jquery.jqgrid.min.js"></script>
+
+    <script>
+        $(function () {
+            $grid = $("#jqGrid").jqGrid({
+                url: '@Url.Action("GetData","Orders")',
+                mtype: "GET",
+                datatype: "json",
+                colModel: [
+                    { label: 'ORDER NUMBER', name: 'ORD_NUM', width: 150 },
+                    { label: 'AMOUNT', name: 'ORD_AMOUNT', width: 150, searchoptions: { sopt: ['lt', 'eq', 'ne', 'le'] } },
+                    { label: 'ADVANCE', name: 'ADVANCE_AMOUNT', width: 150 },
+                    { label: 'ORDER DATE', name: 'ORD_DATE', width: 150, formatter: 'date', formatoptions: { srcformat: 'Y/m/d', newformat: 'd/m/Y' }},
+                    { label: 'CUSTOMER CODE', name: 'CUST_CODE', width: 150 },
+                    { label: 'AGENT CODE', name: 'AGENT_CODE', width: 150 },
+                    { label: 'DESCRIPTION', name: 'ORD_DESCRIPTION', width: 150 },
+                ],
+                viewrecords: true,
+                height: 250,
+                rowList: [10, 20, 30, 40],
+                pager: "#jqGridPager",
+            });
+            $("#jqGrid").jqGrid('navGrid', '#jqGridPager',
+                {
+                    edit: false, add: false, del: false
+                });
+        });
+    </script>
+
+}
+
+
+
+<br />
+@Html.ActionLink("Back to Home page", "Index", "Home")
+<br />

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OrdersDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ORDER">
+    <Key>
+      <PropertyRef Name="ORD_NUM" />
+    </Key>
+    <Property Name="ORD_NUM" Type="Int32" Nullable="false" />
+    <Property Name="ORD_AMOUNT" Type="Double" Nullable="false" />
+    <Property Name="ADVANCE_AMOUNT" Type="Double" Nullable="false" />
+    <Property Name="ORD_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CUST_CODE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AGENT_CODE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ORD_DESCRIPTION" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="OrdersDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ORDERS" EntityType="Self.ORDER" />
+  </EntityContainer>
+</Schema>

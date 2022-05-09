@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JqGridDBModelStoreContainer" CdmEntityContainer="DBModel">
+    <EntitySetMapping Name="Athletes">
+      <EntityTypeMapping TypeName="JqGridDBModel.Athlete">
+        <MappingFragment StoreEntitySet="Athlete">
+          <ScalarProperty Name="AthleteID" ColumnName="AthleteID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Sport" ColumnName="Sport" />
+          <ScalarProperty Name="Gold" ColumnName="Gold" />
+          <ScalarProperty Name="Silver" ColumnName="Silver" />
+          <ScalarProperty Name="Bronze" ColumnName="Bronze" />
+          <ScalarProperty Name="TotalMedals" ColumnName="TotalMedals" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

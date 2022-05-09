@@ -1,0 +1,137 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<h1>
+    Approach 1
+</h1>
+
+<div>
+    <h1>
+        Results are as below:
+    </h1>
+    <br />
+    Bill Amount: @ViewBag.BillAmount
+    <br />
+    Discount: @ViewBag.Discount
+    <br />
+    Net Bill Amount: @ViewBag.NEtBillAmount
+</div>
+
+
+@{ Html.BeginForm("Calculate", "FormsDemo", FormMethod.Post);
+}
+
+<p>Product Name: @Html.TextBox("txtProductName")</p>
+<p>Product Cost: @Html.TextBox("txtCost")</p>
+<p>Quantity: @Html.TextBox("txtQty")</p>
+<input type="submit" value="Submit1" />
+
+@{
+    Html.EndForm();
+
+
+}
+
+<h2>
+    Approach2
+</h2>
+
+@{
+    Html.BeginForm("Index", "FormsDemo", FormMethod.Post);
+    @:Product Name: @Html.TextBox("txtProductName")
+    <br />
+    @:Product Cost: @Html.TextBox("txtCost")
+    <br />
+    @:Quantity: @Html.TextBox("txtQty")
+    <br />
+    <input type="submit" value="Submit2" />
+    Html.EndForm();
+}
+
+<h2> Approach 3</h2>
+@using (Html.BeginForm("Index", "FormsDemo"))
+{
+    @:Product Name: @Html.TextBox("txtProductName")
+    <br />
+    @:Product Cost: @Html.TextBox("txtCost")
+    <br />
+    @:Quantity: @Html.TextBox("txtQty")
+    <br />
+    <input type="submit" value="Submit3" />
+
+
+}
+
+<h2>
+    Form Controls
+</h2>
+
+@{
+    Html.BeginForm();
+
+    @Html.Label("ProductName", "ProductName:")
+    @Html.TextBox("ProductName")
+    <br />
+
+    @Html.Label("txtCost", "Product Cost:")
+    @Html.TextBox("txtCost")
+    <br />
+
+    @Html.Label("txtQty", "Quantity:")
+    @Html.TextBox("txtQty")
+    <br />
+
+    @Html.Label("BillAmount", "Bill Amount:")
+    @Html.TextBox("BillAmount")
+    <br />
+
+    @Html.Label("Discount", "Discount:")
+    @Html.TextBox("Discount")
+    <br />
+
+    @Html.Label("NetBillAmount", "Net Bill Amount:")
+    @Html.TextBox("NetBillAmount")
+    <br />
+
+    @Html.CheckBox("IsPartOfDeal")
+    @Html.Label("IsPartOfDeal", "Is Part Of Deal?")
+    <br />
+
+
+    <br />
+    @Html.Label("Category", "Categories")
+    @Html.DropDownList("Category", new List<SelectListItem>
+{
+new SelectListItem() {Text="Fashion",Value="1"},
+new SelectListItem() {Text="Electronics",Value="2",Selected=true},
+new SelectListItem() {Text="Computers",Value="3"},
+new SelectListItem() {Text="Sports",Value="4"}});
+    <br />
+
+
+
+    @Html.Label("CategoryList", "Categories")
+    @Html.ListBox("CategoryList", new List<SelectListItem>
+{
+new SelectListItem() {Text="Fashion",Value="1"},
+new SelectListItem() {Text="Electronics",Value="2",Selected=true},
+new SelectListItem() {Text="Computers",Value="3"},
+new SelectListItem() {Text="Sports",Value="4"}
+});
+    <br />
+
+    @Html.Label("Payment", "Payment Type")
+    @Html.RadioButton("Payment", "CreditCard")@:Credit Card
+    @Html.RadioButton("Payment", "InternetBanking")@:Internet Banking
+    @Html.RadioButton("Payment", "DebitCard")@:Debit Card
+
+
+
+    <br />
+    <input type="submit" name="Submit" value="Submit4" />
+    Html.EndForm();
+}

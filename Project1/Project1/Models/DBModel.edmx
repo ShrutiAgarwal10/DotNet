@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OrdersDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ORDERS">
+          <Key>
+            <PropertyRef Name="ORD_NUM" />
+          </Key>
+          <Property Name="ORD_NUM" Type="int" Nullable="false" />
+          <Property Name="ORD_AMOUNT" Type="float" Nullable="false" />
+          <Property Name="ADVANCE_AMOUNT" Type="float" Nullable="false" />
+          <Property Name="ORD_DATE" Type="date" Nullable="false" />
+          <Property Name="CUST_CODE" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="AGENT_CODE" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="ORD_DESCRIPTION" Type="varchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="OrdersDBModelStoreContainer">
+          <EntitySet Name="ORDERS" EntityType="Self.ORDERS" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OrdersDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ORDER">
+          <Key>
+            <PropertyRef Name="ORD_NUM" />
+          </Key>
+          <Property Name="ORD_NUM" Type="Int32" Nullable="false" />
+          <Property Name="ORD_AMOUNT" Type="Double" Nullable="false" />
+          <Property Name="ADVANCE_AMOUNT" Type="Double" Nullable="false" />
+          <Property Name="ORD_DATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CUST_CODE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AGENT_CODE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ORD_DESCRIPTION" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="OrdersDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ORDERS" EntityType="Self.ORDER" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OrdersDBModelStoreContainer" CdmEntityContainer="OrdersDBEntities">
+          <EntitySetMapping Name="ORDERS">
+            <EntityTypeMapping TypeName="OrdersDBModel.ORDER">
+              <MappingFragment StoreEntitySet="ORDERS">
+                <ScalarProperty Name="ORD_NUM" ColumnName="ORD_NUM" />
+                <ScalarProperty Name="ORD_AMOUNT" ColumnName="ORD_AMOUNT" />
+                <ScalarProperty Name="ADVANCE_AMOUNT" ColumnName="ADVANCE_AMOUNT" />
+                <ScalarProperty Name="ORD_DATE" ColumnName="ORD_DATE" />
+                <ScalarProperty Name="CUST_CODE" ColumnName="CUST_CODE" />
+                <ScalarProperty Name="AGENT_CODE" ColumnName="AGENT_CODE" />
+                <ScalarProperty Name="ORD_DESCRIPTION" ColumnName="ORD_DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

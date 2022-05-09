@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "ShowChildViewContent";
+}
+
+<h2>ShowChildViewContent</h2>
+
+<h2>
+    getting new content from ShowChildViewContent
+</h2>
+
+@Html.Partial("ChildView")
+
+@{Html.RenderPartial("ChildView");}
